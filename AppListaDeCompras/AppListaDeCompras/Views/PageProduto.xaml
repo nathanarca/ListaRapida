@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppListaDeCompras.Views.PageProduto"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"  
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"  
+                 >
+
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation   
+                      PositionIn="Center"  
+                      PositionOut="Center"  
+                      ScaleIn="0.8"  
+                      ScaleOut="1.2"  
+                      DurationIn="100"  
+                      DurationOut="100"  
+                      EasingIn="SinOut"  
+                      EasingOut="SinIn"  
+      HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <StackLayout VerticalOptions="Center"  Padding="20,0" HorizontalOptions="FillAndExpand" >
+        <Frame CornerRadius="1" Padding="4" BackgroundColor="White" >
+            <StackLayout>
+
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="75" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="75" />
+                        <RowDefinition Height="75" />
+                        <RowDefinition Height="65" />
+                    </Grid.RowDefinitions>
+
+
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Row="1" Padding="5"  >
+
+                        <Label VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" HorizontalOptions="FillAndExpand" Margin="2" Text="Descrição"></Label>
+                        
+                        <Entry Completed="textBoxDescricao_Completed" x:Name="textBoxDescricao" VerticalOptions="Center" Placeholder="Descricao" HorizontalOptions="FillAndExpand">
+
+                        </Entry>
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Row="2" Padding="5"  >
+
+                        <Grid VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*" />
+                                <ColumnDefinition Width="50*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Column="0" Margin="2">
+
+                                <Button VerticalOptions="Center" BackgroundColor="{DynamicResource RoxoEscuro}" Clicked="buttonTipoUnidade_Clicked" x:Name="buttonTipoUnidade" Text="Unidade" FontSize="Micro" BorderWidth="1" BorderRadius="3" TextColor="White">
+
+                                </Button>
+
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Column="1"  Margin="2">
+
+                                <Button VerticalOptions="Center" x:Name="buttonTipoPesometro" Clicked="buttonTipoPesometro_Clicked" FontAttributes="Bold" Text="Peso/Metro" FontSize="Micro" BorderRadius="3" BackgroundColor="Transparent" BorderWidth="1" BorderColor="{DynamicResource RoxoEscuro}" TextColor="{DynamicResource RoxoEscuro}">
+
+                                </Button>
+
+                            </StackLayout>
+
+                        </Grid>
+
+
+                        
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  Grid.Row="3" Padding="5"  >
+
+                        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="100*"/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label VerticalOptions="Center" HorizontalOptions="Center" Text="Qtd:" Grid.Column="0"/>
+
+                            <Entry Focused="textBoxQuantidade_Focused" TextChanged="textBoxQuantidade_TextChanged" Grid.Column="1" Completed="textBoxQuantidade_Completed" x:Name="textBoxQuantidade" VerticalOptions="Center" Keyboard="Numeric" Placeholder="0" HorizontalOptions="FillAndExpand"/>
+
+                            <Button Grid.Column="2" x:Name="buttonLimparQtd" Image="IconRemove.png" TextColor="Gray" IsVisible="False" BackgroundColor="Transparent" Clicked="buttonLimparQtd_Clicked" ></Button>
+
+                        </Grid>
+
+
+
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="4" Padding="5"  >
+
+                        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="100*"/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label VerticalOptions="Center" HorizontalOptions="Center" Text="R$" Grid.Column="0"/>
+
+                            <Entry Focused="textBoxValor_Focused" TextChanged="textBoxValor_TextChanged"  Grid.Column="1" x:Name="textBoxValor" VerticalOptions="Center" Keyboard="Numeric" Placeholder="0,00" HorizontalOptions="FillAndExpand"/>
+
+                            <Button Grid.Column="2" x:Name="buttonLimparValor" Image="IconRemove.png" TextColor="Gray" IsVisible="False" BackgroundColor="Transparent" Clicked="buttonLimparValor_Clicked" ></Button>
+
+
+                        </Grid>
+
+                    </StackLayout>
+
+                    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50*"/>
+                            <ColumnDefinition Width="50*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" x:Name="panelApagar" IsVisible="False" Grid.Column="0" Padding="5" Margin="2">
+
+                            <Button BackgroundColor="Transparent" x:Name="buttonApagar" Text="Apagar" FontSize="Small" BorderWidth="1" BorderColor="{DynamicResource VermelhoEscuro}" BorderRadius="3" TextColor="{DynamicResource VermelhoEscuro}">
+
+                            </Button>
+
+                        </StackLayout>
+
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Padding="5" Margin="2">
+
+                            <Button x:Name="buttonSalvar" FontAttributes="Bold" Text="Salvar" FontSize="Small" BorderRadius="3" BackgroundColor="{DynamicResource VerdeEscuro}" TextColor="White">
+
+                            </Button>
+
+                        </StackLayout>
+
+                    </Grid>
+
+                </Grid>
+
+
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+
+</pages:PopupPage>

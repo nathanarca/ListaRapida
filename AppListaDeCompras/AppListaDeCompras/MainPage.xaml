@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppListaDeCompras"
+             x:Class="AppListaDeCompras.MainPage">
+
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        
+        <Grid x:Name="gridPrincipal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="55*"/>
+                <ColumnDefinition  Width="45*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="57"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition x:Name="linhaAdMob" Height="50"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="{DynamicResource RoxoEscuro}" Padding="8" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
+
+                <Grid Padding="10,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="70*"/>
+                        <ColumnDefinition  Width="30*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image x:Name="Imagem1" Aspect="AspectFit" VerticalOptions="Center" Source="logoBranca.png" HorizontalOptions="Start" Grid.Column="0" ></Image>
+
+                    <Button BackgroundColor="Transparent" x:Name="buttonMenu"  Clicked="buttonMenu_Clicked" Text="Menu" TextColor="White" BorderColor="White" CornerRadius="3" BorderWidth="1" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1"></Button>
+
+                </Grid>
+
+            </StackLayout>
+
+
+            <StackLayout x:Name="panelNenhumaLista" VerticalOptions="Center" Padding="20,20,20,20" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+
+                <Label FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center" Text="Você nao tem nenhuma lista, clique no botão abaixo para criar uma!" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"></Label>
+
+            </StackLayout>
+
+            <StackLayout IsVisible="False" x:Name="panelGrid" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                <ListView x:Name="ListViewInfoInicial" SelectionMode="None" ItemTapped="ListViewInfoInicial_ItemTapped"  HasUnevenRows="True" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <ViewCell>
+
+                                <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,0,15,0">
+
+                                    <Grid VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="30"/>
+                                            <RowDefinition Height="1"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="33*"/>
+                                            <ColumnDefinition Width="33*"/>
+                                            <ColumnDefinition Width="33*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0">
+                                            <Label FontSize="13" HorizontalTextAlignment="Start" Text="{Binding Descricao}"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                                            <Label FontSize="13" TextColor="{DynamicResource CinzaClaro}" HorizontalTextAlignment="Start" Text="{Binding Data,StringFormat=' {0:dd/MM/yyy hh:mm}'}"></Label>
+                                        </StackLayout>
+
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand"  Grid.Column="2" Grid.Row="0">
+                                            <Label TextColor="{DynamicResource RoxoEscuro}" FontSize="15" HorizontalTextAlignment="End" Text="{Binding ValorTotal,StringFormat=' {0:n2}'}"></Label>
+                                        </StackLayout>
+
+                                        <BoxView HeightRequest="0.2" Color="{DynamicResource BrancoEscuro}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3"></BoxView>
+
+
+                                    </Grid>
+                                </StackLayout>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout Padding="5" Margin="3" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
+
+                <Button x:Name="buttonNovaLista" VerticalOptions="Center" FontAttributes="Bold" Clicked="buttonNovaLista_Clicked" BackgroundColor="Transparent" BorderColor="{DynamicResource RoxoEscuro}" TextColor="{DynamicResource RoxoEscuro}" BorderWidth="1" CornerRadius="3" FontSize="15" Text="+ nova lista" ></Button>
+
+            </StackLayout>
+
+            <StackLayout x:Name="panelAdMob" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3">
+
+                <local:AdMobView x:Name="adMobView" VerticalOptions="FillAndExpand"  />
+
+            </StackLayout>
+
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>
+
+    
+    

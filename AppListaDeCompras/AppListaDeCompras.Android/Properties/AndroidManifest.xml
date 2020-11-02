@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="6" android:versionName="1.5" package="nathanCamara.AppListaRapida" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="23" android:targetSdkVersion="28" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<application android:label="Lista Rápida" android:icon="@drawable/Icone"></application>
+	<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
+</manifest>
